@@ -1,0 +1,29 @@
+:root {
+  font-family: 'Roboto', serif;
+  font-size: 10px;
+  line-height: 24px;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (min-width: 500px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    font-size: calc(1rem + ((1vw - 7.68px) * 0.6944));
+    min-height: 0vw;
+  }
+}
+@media (min-width: 1920px) {
+  :root {
+    font-size: 24px;
+  }
+}
