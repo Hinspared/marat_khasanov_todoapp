@@ -4,47 +4,7 @@ import { store } from '../store';
 
 const actualstorage = JSON.parse(localStorage.getItem('TodoList')!);
 
-const initStorage = [
-  {
-    id: 1,
-    name: 'first',
-    description: 'its my first task, just for testing',
-    type: 'new',
-    color: 'red',
-    author: 'user',
-    subtasks: [
-      {
-        id: 6,
-        name: 'second',
-        type: 'old',
-      },
-      {
-        id: 8,
-        name: 'third',
-        type: 'brand new',
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: 'second',
-    type: 'old',
-    color: '#3ccf4e',
-    subtasks: [
-      {
-        id: 3,
-        name: 'second',
-        type: 'old',
-      },
-      {
-        id: 10,
-        name: 'eleeve',
-        type: 'oadad',
-      },
-    ],
-  },
-];
-
+const initStorage: any = [];
 const storage = actualstorage ? actualstorage : initStorage;
 
 const todoSlice = createSlice({
@@ -55,6 +15,7 @@ const todoSlice = createSlice({
       const newTodo = {
         id: Date.now(),
         name: action.payload.name,
+        author: action.payload.author,
         description: action.payload.description,
         type: action.payload.type,
         color: action.payload.color,

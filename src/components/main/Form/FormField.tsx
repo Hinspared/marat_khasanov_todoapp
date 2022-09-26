@@ -7,13 +7,10 @@ export default function FormField({
   multiline = false,
   onChange,
   helperText,
+  placeholder,
 }: FormProps) {
   return (
-    <div
-      style={{
-        paddingTop: '1.5rem',
-      }}
-    >
+    <div>
       <TextField
         name={name}
         multiline={multiline}
@@ -23,6 +20,7 @@ export default function FormField({
         fullWidth
         type={type}
         helperText={helperText}
+        placeholder={placeholder}
       />
     </div>
   );

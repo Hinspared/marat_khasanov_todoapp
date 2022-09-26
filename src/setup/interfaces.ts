@@ -12,18 +12,23 @@ export type Todo = {
   type: string;
   color: string;
   author: string;
-  subtasks: { id: number; name: string; type: string; color?: string }[];
+  subtasks: Subtask[];
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   onClose?: () => void;
 };
 
+export interface DetailedProps {
+  onClose: () => void;
+  subtasks: Subtask[];
+}
 export type Subtask = {
   id: number;
   name: string;
-  description: string;
+  description?: string;
   type: string;
   color: string;
   author: string;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export interface StateTodo {
@@ -51,6 +56,7 @@ export interface FormProps {
   options?: any;
   helperText?: string;
   multiline?: boolean;
+  placeholder?: string;
 }
 
 export interface MenuProps {

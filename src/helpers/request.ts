@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// Access blocked by CORS policy
 export const request = async () => {
   try {
     const typesArray: string[] = [];

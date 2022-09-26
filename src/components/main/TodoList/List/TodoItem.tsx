@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Paper, Grid, Typography } from '@mui/material';
+import { Paper, Grid, Typography, Box } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../../../../setup/hooks';
 import { deleteTodo } from '../../../../setup/store/reducers/todoSlice';
 import { Todo } from '../../../../setup/interfaces';
@@ -16,6 +16,7 @@ export default function TodoItem({
   const dispatch = useAppDispatch();
   const handleDeleteClick = () => {
     dispatch(deleteTodo({ id: id }));
+    setAnchorEl(null);
   };
 
   //   Menu handlers
@@ -34,16 +35,27 @@ export default function TodoItem({
   const handleCopyClick = async () => {
     await navigator.clipboard.writeText(`name: ${name}, type: ${type}`);
     alert('Text copied');
+    setAnchorEl(null);
   };
   return (
     <Paper
       elevation={5}
-      sx={{ background: `${color}` }}
+      sx={{ borderRadius: '0.8rem' }}
       data-id={id}
       onClick={onClick}
     >
-      <Grid container spacing={0} p="1rem 1rem" justifyContent="center">
-        <Grid item xs={12}>
+      <Box
+        sx={{
+          background: `${color}`,
+          height: '1rem',
+          borderRadius: '0.8rem 0.8rem 0 0',
+        }}
+      ></Box>
+      <Grid justifyContent="center" padding={1}>
+        <Grid item xs={12} className="todoContainer" marginBottom={3}>
+          <Typography variant="h4">
+            {name[0].toUpperCase() + name.slice(1)}
+          </Typography>
           <Menu
             open={open}
             anchorEl={anchorEl}
@@ -53,28 +65,9 @@ export default function TodoItem({
             onClickDelete={handleDeleteClick}
           />
         </Grid>
-        <Grid item xs={3}>
-          <Typography variant="h5">
-            {name[0].toUpperCase() + name.slice(1)}
-          </Typography>
-        </Grid>
-        <Grid item xs={6} sx={{ display: 'flex', alignItems: 'center' }}>
+        <Grid item xs={12} className="todoContainer">
           <Typography variant="h6">Type: {type}</Typography>
-        </Grid>
-        <Grid
-          item
-          xs={3}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-          }}
-        >
-          <Typography variant="body2">
-            Number of subtasks: {subtasks?.length}
-          </Typography>
+          <Typography variant="body2">Subtasks: {subtasks?.length}</Typography>
         </Grid>
       </Grid>
     </Paper>

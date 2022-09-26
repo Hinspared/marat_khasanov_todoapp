@@ -15,7 +15,7 @@ export default function TypeMenu({
     <div
       style={{
         display: 'flex',
-        flexDirection: 'column',
+        alignItems: 'flex-end',
       }}
     >
       <Typography variant="h6">Type: </Typography>
@@ -25,10 +25,13 @@ export default function TypeMenu({
         select
         variant="standard"
         value={value}
-        // defaultValue={defaultValue}
         SelectProps={{ IconComponent: () => null }}
+        sx={{
+          marginLeft: '0.3rem',
+        }}
         InputProps={{
           disableUnderline: true,
+          style: { fontSize: '1.25rem' },
         }}
         onChange={onChange}
       >

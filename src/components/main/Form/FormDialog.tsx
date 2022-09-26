@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { FCProps } from '../../../setup/interfaces';
+import { useAppSelector } from '../../../setup/hooks';
 
 export default function FormDialog({
   open = false,
@@ -15,13 +16,23 @@ export default function FormDialog({
   onClick,
   children,
 }: FCProps) {
+  const active = useAppSelector((state) => state.view.active);
+
+  const title = active ? 'task' : 'subtask';
   return (
-    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        width: '65%',
+        margin: '0 auto',
+      }}
+    >
       <Button onClick={onClick} sx={{ marginTop: '2rem' }}>
         <AddCircleIcon color="primary" sx={{ fontSize: '5rem' }} />
       </Button>
       <Dialog open={open} onClose={onClose}>
-        <DialogTitle sx={{ textAlign: 'center' }}>Add new thing</DialogTitle>
+        <DialogTitle sx={{ textAlign: 'center' }}>Add new {title}</DialogTitle>
         <DialogContent>
           <Stack spacing={2}>{children}</Stack>
         </DialogContent>

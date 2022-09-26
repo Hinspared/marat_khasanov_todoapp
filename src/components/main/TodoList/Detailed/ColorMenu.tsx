@@ -2,12 +2,7 @@ import TextField from '@mui/material/TextField';
 import { MenuItem, Typography } from '@mui/material';
 import { FormProps } from '../../../../setup/interfaces';
 
-export default function ColorMenu({
-  name,
-  value,
-  onChange,
-  defaultValue,
-}: FormProps) {
+export default function ColorMenu({ name, value, onChange }: FormProps) {
   return (
     <div
       style={{
@@ -22,7 +17,6 @@ export default function ColorMenu({
         select
         variant="standard"
         SelectProps={{ IconComponent: () => null }}
-        defaultValue={defaultValue}
         value={value}
         sx={{
           width: '5rem',

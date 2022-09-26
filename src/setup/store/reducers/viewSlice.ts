@@ -35,6 +35,7 @@ const viewSlice = createSlice({
         description: action.payload.description,
         type: action.payload.type,
         color: action.payload.color,
+        author: action.payload.author,
       };
       state.todo.subtasks.push(newSubtask);
     },

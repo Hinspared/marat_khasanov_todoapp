@@ -19,7 +19,6 @@ export default function Main() {
   React.useEffect(() => {
     request().then((result: any) => {
       setData(result);
-      console.log(result);
       dispatch(setTypes(result));
     });
   }, []);
@@ -58,9 +57,10 @@ export default function Main() {
       .string()
       .required('Required')
       .notOneOf(unique, 'name is already exist')
-      .max(10, 'Max length is 10'),
+      .max(16, 'Max length is 16'),
     type: yup.string().required('required'),
     color: yup.string().required('required'),
+    description: yup.string().max(100, 'max length is 100'),
   });
 
   const formik = useFormik({
@@ -120,12 +120,14 @@ export default function Main() {
           name="author"
           value={formik.values.author}
           onChange={formik.handleChange}
+          placeholder="User"
         />
         <FormField
           name="description"
           value={formik.values.description}
           onChange={formik.handleChange}
           multiline
+          helperText={formik.errors.description}
         />
       </FormDialog>
     </>
