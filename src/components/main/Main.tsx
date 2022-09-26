@@ -56,7 +56,7 @@ export default function Main() {
     name: yup
       .string()
       .required('Required')
-      .notOneOf(unique, 'name is already exist')
+      .notOneOf(unique, 'title already exists')
       .max(16, 'Max length is 16'),
     type: yup.string().required('required'),
     color: yup.string().required('required'),
@@ -67,7 +67,6 @@ export default function Main() {
     initialValues: initialValues,
     validationSchema: formValidation,
     onSubmit: (values) => {
-      console.log(id);
       active ? dispatch(addTodo(values)) : dispatch(addSubtask(values));
       setOpen(false);
       values.id = 0;

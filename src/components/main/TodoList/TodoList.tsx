@@ -18,11 +18,20 @@ export default function TodoList() {
 
   const dispatch = useAppDispatch();
 
+  const names: string[] = Object.values(
+    todos.map((todo: any) => todo.name.toLowerCase())
+  );
+
   const handleClickClose = () => {
     if (todo.name.length === 0) {
       alert('TodoName is empty');
       return;
     }
+    if (names.includes(todo.name.toLowerCase())) {
+      alert('Title already exists');
+      return;
+    }
+
     dispatch(toggleOn());
     dispatch(addSubtask(todo));
   };
@@ -68,7 +77,7 @@ export default function TodoList() {
     </Box>
   ) : (
     <Box sx={{ paddingTop: '3rem', width: '65%', margin: '0 auto' }}>
-      <TodoDetailed onClose={handleClickClose} subtasks={todo.subtasks} />
+      <TodoDetailed onClose={handleClickClose} />
     </Box>
   );
 }
