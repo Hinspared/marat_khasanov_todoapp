@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Main from './components/main/Main';
 import { store } from './setup/store/store';
 import { ThemeProvider } from '@emotion/react';
-import theme from './setup/Theme';
+import theme from './setup/theme';
 
 export default function App() {
   return (

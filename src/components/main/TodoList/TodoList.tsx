@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Stack, Typography, Paper, Box } from '@mui/material';
+import { Stack, Typography, Box } from '@mui/material';
 import TodoItem from './List/TodoItem';
 import { useAppSelector, useAppDispatch } from '../../../setup/hooks';
 import { Todo } from '../../../setup/interfaces';
@@ -16,11 +16,14 @@ export default function TodoList() {
   const todo = useAppSelector((state) => state.view.todo);
   const active = useAppSelector((state) => state.view.active);
 
-  const dispatch = useAppDispatch();
-
+  const [id, setId] = React.useState(0);
   const names: string[] = Object.values(
-    todos.map((todo: any) => todo.name.toLowerCase())
+    todos
+      .filter((todo: any) => todo.id !== id)
+      .map((title: any) => title.name.toLowerCase())
   );
+
+  const dispatch = useAppDispatch();
 
   const handleClickClose = () => {
     if (todo.name.length === 0) {
@@ -44,12 +47,12 @@ export default function TodoList() {
     if (target.innerHTML === 'Copy') return;
     if (target.innerHTML === 'Delete') return;
     if (target.classList.contains('MuiBackdrop-root')) return;
+
     // Set active Todo to render details
     const id = Number(e.currentTarget.dataset.id);
     const todoId = todos.filter((todo: any) => todo.id === id);
-    // Equal to spread operator, Typescript show error 2556
+    setId(id);
     dispatch(setTodo.apply(null, todoId));
-    // dispatch(setTodo(...todoId);
 
     // Toggle between TodoList and TodoDetailed
     dispatch(toggleOff());

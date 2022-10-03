@@ -3,7 +3,13 @@ import { Todo } from '../../interfaces';
 
 const initState = {
   active: true,
-  types: <string[]>[],
+  types: [
+    'Personal task',
+    'Marketing task',
+    'Sales task',
+    'Development task',
+    'HR task',
+  ],
   todo: <Todo>{
     id: Date.now(),
     name: '',

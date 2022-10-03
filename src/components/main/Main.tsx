@@ -1,7 +1,6 @@
 import * as React from 'react';
 import FormDialog from './Form/FormDialog';
 import FormField from './Form/FormField';
-import { request } from '../../helpers/request';
 import Select from './Form/Select';
 import { useAppDispatch, useAppSelector } from '../../setup/hooks';
 import { addTodo } from '../../setup/store/reducers/todoSlice';
@@ -9,23 +8,15 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import SelectColor from './Form/SelectColor';
 import TodoList from './TodoList/TodoList';
-import { addSubtask, setTypes } from '../../setup/store/reducers/viewSlice';
+import { addSubtask } from '../../setup/store/reducers/viewSlice';
 
 export default function Main() {
   const dispatch = useAppDispatch();
 
-  // Data for type field
-  const [data, setData] = React.useState([]);
-  React.useEffect(() => {
-    request().then((result: any) => {
-      setData(result);
-      dispatch(setTypes(result));
-    });
-  }, []);
-
   // Add todo or subtask
   const id = useAppSelector((state) => state.view.todo.id);
   const active = useAppSelector((state) => state.view.active);
+  const types = useAppSelector((state) => state.view.types);
 
   // Data to validate name for uniqueness
   const todos = useAppSelector((state) => state.todos);
@@ -98,7 +89,7 @@ export default function Main() {
       >
         <Select
           name="type"
-          options={data}
+          options={types}
           onChange={formik.handleChange}
           value={formik.values.type}
           helperText={formik.errors.type}

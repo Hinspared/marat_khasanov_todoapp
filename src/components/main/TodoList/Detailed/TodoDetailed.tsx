@@ -12,7 +12,7 @@ export default function TodoDetailed({ onClose }: DetailedProps) {
   // Retrieve data from store
   const todo = useAppSelector((state) => state.view.todo);
   const dispatch = useAppDispatch();
-  
+
   // Render details of Todo or Subtask
   const [condition, setCondition] = React.useState(true);
   const [subtask, setSubtask] = React.useState<Subtask>({
@@ -23,7 +23,6 @@ export default function TodoDetailed({ onClose }: DetailedProps) {
     description: '',
     color: '',
   });
-  
 
   const renderItem = condition ? todo : subtask;
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Paper, Grid, Typography, Box } from '@mui/material';
-import { useAppDispatch, useAppSelector } from '../../../../setup/hooks';
+import { useAppDispatch } from '../../../../setup/hooks';
 import { deleteTodo } from '../../../../setup/store/reducers/todoSlice';
 import { Todo } from '../../../../setup/interfaces';
 import Menu from '../Detailed/BasicMenu';

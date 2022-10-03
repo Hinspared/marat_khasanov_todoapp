@@ -2,13 +2,11 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import { MenuItem, Typography } from '@mui/material';
 import { FormProps } from '../../../../setup/interfaces';
-import { useAppSelector } from '../../../../setup/hooks';
 
 export default function TypeMenu({
   name,
   value,
   onChange,
-  defaultValue,
   options,
 }: FormProps) {
   return (
