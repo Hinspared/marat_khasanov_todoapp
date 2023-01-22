@@ -18,8 +18,8 @@ This is a simple to-do application built with React,TypeScript and MaterialUI. I
 
 ## Prerequisites
 
-Node.js
-npm
+- Node.js
+- npm
 
 ## Built With
 
