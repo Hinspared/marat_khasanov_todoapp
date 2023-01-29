@@ -19,7 +19,6 @@ export default function TodoDetailed({ onClose }: DetailedProps) {
     id: 0,
     name: '',
     type: '',
-    author: 'User',
     description: '',
     color: '',
   });
@@ -78,7 +77,6 @@ export default function TodoDetailed({ onClose }: DetailedProps) {
         id={renderItem.id}
         name={renderItem.name}
         type={renderItem.type}
-        author={renderItem.author}
         description={renderItem.description}
         color={renderItem.color}
         onChange={handleChange}
@@ -91,7 +89,6 @@ export default function TodoDetailed({ onClose }: DetailedProps) {
             id={subtask.id}
             name={subtask.name}
             type={subtask.type}
-            author={subtask.author}
             description={subtask.desription}
             color={subtask.color}
             onClick={handleClick}

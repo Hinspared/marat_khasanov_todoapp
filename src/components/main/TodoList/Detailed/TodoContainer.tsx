@@ -8,7 +8,6 @@ export default function TodoContainer({
   id,
   name,
   type,
-  author,
   description,
   subtasks,
   color,
@@ -38,6 +37,8 @@ export default function TodoContainer({
               value={name}
               placeholder="TodoName"
               onChange={onChange}
+              maxRows={3}
+              multiline
               inputProps={{ maxLength: 16 }}
               InputProps={{
                 disableUnderline: true,
@@ -59,13 +60,6 @@ export default function TodoContainer({
             />
             <Typography variant="body2">
               Subtasks: {subtasks?.length}
-            </Typography>
-          </Grid>
-          <Grid item xs={12} marginTop={3} className="todoContainer">
-            <Typography variant="h5">Description: </Typography>
-            <Typography variant="h5">
-              Author:
-              {author}
             </Typography>
           </Grid>
           <Grid item xs={12} marginTop={3} className="todoContainer">

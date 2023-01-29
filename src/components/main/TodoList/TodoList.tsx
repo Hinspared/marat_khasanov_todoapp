@@ -68,7 +68,6 @@ export default function TodoList() {
               id={todo.id}
               type={todo.type}
               name={todo.name}
-              author={todo.author}
               description={todo.description}
               color={todo.color}
               subtasks={todo.subtasks}

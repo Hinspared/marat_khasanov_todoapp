@@ -11,7 +11,7 @@ export type Todo = {
   description: string;
   type: string;
   color: string;
-  author: string;
+  // author: string;
   subtasks: Subtask[];
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   onClose?: () => void;
@@ -23,7 +23,7 @@ export interface RenderItemProps {
   description: string | undefined;
   type: string;
   color: string;
-  author: string;
+  // author: string;
   subtasks?: Subtask[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -37,7 +37,7 @@ export type Subtask = {
   description?: string;
   type: string;
   color: string;
-  author: string;
+  // author: string;
   subtasks?: Subtask[];
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 };

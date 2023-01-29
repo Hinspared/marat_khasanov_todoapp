@@ -41,14 +41,14 @@ export default function Main() {
     color: '',
     description: '',
     subtasks: [],
-    author: 'user',
+    // author: 'user',
   };
   const formValidation = yup.object().shape({
     name: yup
       .string()
       .required('Required')
       .notOneOf(unique, 'title already exists')
-      .max(16, 'Max length is 16'),
+      .max(20, 'Max length is 20'),
     type: yup.string().required('required'),
     color: yup.string().required('required'),
     description: yup.string().max(100, 'max length is 100'),
@@ -65,7 +65,7 @@ export default function Main() {
       values.type = '';
       values.color = '';
       values.description = '';
-      (values.subtasks = []), (values.author = 'user');
+      // (values.subtasks = []), (values.author = 'user');
     },
     onReset: (values) => {
       values.id = 0;
@@ -73,7 +73,6 @@ export default function Main() {
       values.type = '';
       values.color = '';
       values.description = '';
-      (values.subtasks = []), (values.author = 'user');
       setOpen(false);
     },
   });
@@ -106,12 +105,12 @@ export default function Main() {
           onChange={formik.handleChange}
           helperText={formik.errors.name}
         />
-        <FormField
+        {/* <FormField
           name="author"
           value={formik.values.author}
           onChange={formik.handleChange}
           placeholder="User"
-        />
+        /> */}
         <FormField
           name="description"
           value={formik.values.description}
