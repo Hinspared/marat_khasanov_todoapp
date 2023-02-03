@@ -3,14 +3,13 @@ import { Todo } from '../../interfaces';
 
 const initState = {
   active: true,
-  types: ['Personal', 'Business'],
+  types: ['personal', 'business'],
   todo: <Todo>{
     id: Date.now(),
     name: '',
     description: '',
     type: '',
     color: '',
-    author: '',
     subtasks: [],
   },
 };
@@ -35,7 +34,6 @@ const viewSlice = createSlice({
         description: action.payload.description,
         type: action.payload.type,
         color: action.payload.color,
-        author: action.payload.author,
       };
       state.todo.subtasks.push(newSubtask);
     },

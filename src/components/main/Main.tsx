@@ -105,12 +105,6 @@ export default function Main() {
           onChange={formik.handleChange}
           helperText={formik.errors.name}
         />
-        {/* <FormField
-          name="author"
-          value={formik.values.author}
-          onChange={formik.handleChange}
-          placeholder="User"
-        /> */}
         <FormField
           name="description"
           value={formik.values.description}
