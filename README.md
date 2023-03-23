@@ -1,4 +1,4 @@
-# Todo App
+# Todo List
 
 This is a simple to-do application built with React,TypeScript and MaterialUI. It allows users to add, edit, and delete tasks, and also add subtasks.
 
